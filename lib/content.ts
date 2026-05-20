@@ -312,8 +312,8 @@ export const FUTURE = {
   title: "Tudástól a cselekvésig",
   subtitle: "Az emlékezéstől a végrehajtásig.",
   split: {
-    left: { label: "MOST", body: "Manuális prompt, Claude futtat scriptet, eredmény." },
-    right: { label: "TERVEZETT", body: "Ütemezett ágensek, auto-ingeszt, auto-merge, auto-riasztás." },
+    left: { label: "MOST", body: "Manuális precíz erősen auditált prompt engineering, Claude futtat scriptet, eredmény." },
+    right: { label: "TERVEZETT", body: "Ütemezett agentek, auto-ingeszt, auto-merge, auto-riasztás." },
   },
   list: [
     { freq: "Heti", body: "Minden Trello RELEASED kártya leírás re-fetch, változások detektálása." },
