@@ -89,12 +89,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Desktop deck mode: scroll-snap */
-@media (min-width: 1024px) {
-  html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
+/* Smooth scroll on all viewports (no snap — natural scroll) */
+html {
+  scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {

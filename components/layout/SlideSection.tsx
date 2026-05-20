@@ -20,14 +20,13 @@ export function SlideSection({
       id={`slide-${meta.id}`}
       data-theme={meta.dark ? "dark" : undefined}
       className={clsx(
-        "relative flex w-full snap-start overflow-hidden",
-        "min-h-screen lg:h-screen",
+        "relative flex w-full overflow-hidden",
+        "min-h-screen",
         className,
       )}
       style={{
         background: "var(--bg-tint)",
         color: "var(--ink)",
-        scrollSnapAlign: "start",
       }}
     >
       <ParallaxBlob
