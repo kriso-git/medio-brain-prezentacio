@@ -9,7 +9,7 @@
   --color-purple: #b7a8f0;
   --color-pink: #f0b8e0;
   --font-sans: var(--font-outfit), "Inter", system-ui, sans-serif;
-  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", monospace;
 }
 
 :root {

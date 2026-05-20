@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
   display: "swap",
-  variable: "--font-mono",
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
