@@ -255,7 +255,7 @@ export const COMPARE = {
 
 export const TIMELINE = {
   title: "Egyetlen session-ben bootstrap-elve",
-  subtitle: "Tizenkét mérföldkő, egy hét aktív munka.",
+  subtitle: "Tizenkét mérföldkő, két nap aktív munka.",
   milestones: [
     "Mappa-struktúra létrehozása + mediobrain.md 5 alap szabállyal",
     "Web ingeszt (web_ingest.py) Jina Reader proxy-val",
@@ -271,7 +271,7 @@ export const TIMELINE = {
     "12 szabály a mediobrain.md-ben, feature-complete v1",
   ],
   stats: {
-    big: "1 hét",
+    big: "2 nap",
     label: "aktív munka",
     items: [
       "11 Python script",
