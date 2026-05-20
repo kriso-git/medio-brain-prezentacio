@@ -3,36 +3,13 @@ import { motion } from "framer-motion";
 import { STACK, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
 import { Card } from "@/components/primitives/Card";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide02Stack() {
   return (
     <SlideSection meta={SLIDES_META[1]}>
       <div className="flex h-full flex-col gap-9">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {STACK.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-              lineHeight: 1.3,
-            }}
-          >
-            {STACK.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={STACK.title} subtitle={STACK.subtitle} />
 
         <div className="grid flex-1 grid-cols-1 gap-6 md:grid-cols-3">
           {STACK.columns.map((col, i) => (

@@ -4,39 +4,17 @@ import { WEB, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
 import { CodeBlock } from "@/components/primitives/CodeBlock";
 import { StatNumber } from "@/components/primitives/StatNumber";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide06Web() {
   return (
     <SlideSection meta={SLIDES_META[5]}>
       <div className="flex h-full flex-col gap-9">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {WEB.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            {WEB.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={WEB.title} subtitle={WEB.subtitle} />
 
         <div className="grid grid-cols-1 items-center gap-5 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
           {WEB.flow.map((box, i) => {
-            const isMid = (box as { mid?: boolean }).mid;
+            const isMid = box.mid;
             return (
               <div key={box.label} className="contents">
                 <motion.div
@@ -94,7 +72,7 @@ export function Slide06Web() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {WEB.stats.map((s) => (
             <div key={s.label}>
-              <StatNumber value={parseInt(s.num)} label={s.label} size="large" />
+              <StatNumber value={parseInt(s.num, 10)} label={s.label} size="large" />
             </div>
           ))}
         </div>

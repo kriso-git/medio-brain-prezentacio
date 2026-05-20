@@ -4,36 +4,14 @@ import { GPU, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
 import { Gpu3D } from "@/components/svg/Gpu3D";
 import { Callout } from "@/components/primitives/Callout";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide05Gpu() {
   return (
     <SlideSection meta={SLIDES_META[4]}>
       <div className="grid h-full grid-cols-1 gap-10 lg:grid-cols-[0.45fr_0.55fr]">
         <div className="flex flex-col gap-7">
-          <header>
-            <h2
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "var(--type-title)",
-                fontWeight: 300,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-                margin: 0,
-              }}
-            >
-              {GPU.title}
-            </h2>
-            <p
-              className="mt-3"
-              style={{
-                fontSize: "var(--type-subtitle)",
-                color: "var(--muted)",
-                fontWeight: 300,
-              }}
-            >
-              {GPU.subtitle}
-            </p>
-          </header>
+          <SlideHeader title={GPU.title} subtitle={GPU.subtitle} />
           <div
             className="rounded-3xl border p-7"
             style={{
@@ -86,8 +64,8 @@ export function Slide05Gpu() {
 
         <div className="flex flex-col gap-6">
           {GPU.pipeline.map((box, i) => {
-            const isAmber = (box as { color?: string }).color === "amber";
-            const isFeatured = (box as { featured?: boolean }).featured;
+            const isAmber = box.color === "amber";
+            const isFeatured = box.featured;
             return (
               <div key={box.tag} className="flex flex-col items-center">
                 <motion.div

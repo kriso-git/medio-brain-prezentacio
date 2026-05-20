@@ -2,35 +2,13 @@
 import { motion } from "framer-motion";
 import { FUTURE, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide12Future() {
   return (
     <SlideSection meta={SLIDES_META[11]}>
       <div className="flex h-full flex-col gap-9">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {FUTURE.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            {FUTURE.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={FUTURE.title} subtitle={FUTURE.subtitle} />
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {[FUTURE.split.left, FUTURE.split.right].map((side, i) => (

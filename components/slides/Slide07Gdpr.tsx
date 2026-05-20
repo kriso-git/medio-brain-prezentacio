@@ -2,35 +2,13 @@
 import { motion } from "framer-motion";
 import { GDPR, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide07Gdpr() {
   return (
     <SlideSection meta={SLIDES_META[6]}>
       <div className="flex h-full flex-col gap-8">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {GDPR.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            {GDPR.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={GDPR.title} subtitle={GDPR.subtitle} />
 
         <div className="grid flex-1 grid-cols-1 gap-7 lg:grid-cols-[1.2fr_0.8fr]">
           <div
@@ -54,7 +32,7 @@ export function Slide07Gdpr() {
             </div>
             <div className="divide-y" style={{ borderColor: "var(--border)" }}>
               {GDPR.columns.map((col, i) => {
-                const placeholder = (col as { placeholder?: string }).placeholder;
+                const placeholder = col.placeholder;
                 return (
                   <motion.div
                     key={col.name}
@@ -87,7 +65,7 @@ export function Slide07Gdpr() {
                         fontWeight: col.masked ? 500 : 400,
                       }}
                     >
-                      {placeholder ?? "—"}
+                      {placeholder ?? "-"}
                     </span>
                   </motion.div>
                 );

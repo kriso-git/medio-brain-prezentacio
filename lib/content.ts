@@ -162,7 +162,13 @@ export const GPU = {
     { tag: "FFMPEG", val: "extract", sub: "16 kHz mono WAV", color: "amber" },
     { tag: "CUDA INFERENCE", val: "faster-whisper", sub: "large-v3", featured: true },
     { tag: "OUTPUT", val: "transcript.md", sub: "időbélyeges Markdown" },
-  ],
+  ] as Array<{
+    tag: string;
+    val: string;
+    sub: string;
+    color?: "amber";
+    featured?: boolean;
+  }>,
   metrics: {
     big: "33 perc · 2,4 perc alatt",
     items: ["15-25× realtime", "5-7 GB VRAM peak", "0 külső API hívás"],
@@ -177,7 +183,7 @@ export const WEB = {
     { label: "URL", sub: "weboldal címe" },
     { label: "Jina Reader Proxy", sub: "r.jina.ai", mid: true },
     { label: "Tiszta Markdown", sub: "vault-ba mentve" },
-  ],
+  ] as Array<{ label: string; sub: string; mid?: boolean }>,
   stats: [
     { num: "158", label: "Medio Akadémia cikk" },
     { num: "45", label: "mymedio.hu oldal" },
@@ -203,7 +209,12 @@ export const GDPR = {
     { name: "orvos_telefon", type: "tel", masked: true, placeholder: "[TEL]" },
     { name: "szakteruletek", type: "lista", masked: false },
     { name: "ar_tartomany", type: "szám", masked: false },
-  ],
+  ] as Array<{
+    name: string;
+    type: string;
+    masked: boolean;
+    placeholder?: string;
+  }>,
   bullets: [
     "A rendszer TUDJA hol kellene strukturálisan lennie ezeknek az oszlopoknak.",
     "Az ingeszt során automatikusan placeholder-re cseréli a partneri adatokat.",

@@ -2,35 +2,13 @@
 import { motion } from "framer-motion";
 import { FLOW, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide04Flow() {
   return (
     <SlideSection meta={SLIDES_META[3]}>
       <div className="flex h-full flex-col gap-12">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {FLOW.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            {FLOW.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={FLOW.title} subtitle={FLOW.subtitle} />
 
         <div className="relative grid flex-1 grid-cols-1 items-stretch gap-4 md:grid-cols-5 md:gap-3">
           <svg

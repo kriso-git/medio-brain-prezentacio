@@ -2,35 +2,13 @@
 import { motion } from "framer-motion";
 import { COMPARE, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide09Compare() {
   return (
     <SlideSection meta={SLIDES_META[8]}>
       <div className="flex h-full flex-col gap-9">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {COMPARE.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            {COMPARE.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={COMPARE.title} subtitle={COMPARE.subtitle} />
 
         <div
           className="overflow-hidden rounded-3xl border"

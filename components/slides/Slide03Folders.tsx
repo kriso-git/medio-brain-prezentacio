@@ -3,36 +3,14 @@ import { motion } from "framer-motion";
 import { FOLDERS, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
 import { NetmapDiagram } from "@/components/svg/NetmapDiagram";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide03Folders() {
   return (
     <SlideSection meta={SLIDES_META[2]}>
       <div className="grid h-full grid-cols-1 gap-12 lg:grid-cols-[0.55fr_0.45fr]">
         <div className="flex flex-col gap-7">
-          <header>
-            <h2
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "var(--type-title)",
-                fontWeight: 300,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-                margin: 0,
-              }}
-            >
-              {FOLDERS.title}
-            </h2>
-            <p
-              className="mt-3"
-              style={{
-                fontSize: "var(--type-subtitle)",
-                color: "var(--muted)",
-                fontWeight: 300,
-              }}
-            >
-              {FOLDERS.subtitle}
-            </p>
-          </header>
+          <SlideHeader title={FOLDERS.title} subtitle={FOLDERS.subtitle} />
 
           <div className="flex flex-col gap-2.5">
             {FOLDERS.list.map((f, i) => (

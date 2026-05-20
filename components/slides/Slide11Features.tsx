@@ -3,35 +3,13 @@ import { motion } from "framer-motion";
 import { FEATURES, SLIDES_META } from "@/lib/content";
 import { SlideSection } from "@/components/layout/SlideSection";
 import { Card } from "@/components/primitives/Card";
+import { SlideHeader } from "@/components/primitives/SlideHeader";
 
 export function Slide11Features() {
   return (
     <SlideSection meta={SLIDES_META[10]}>
       <div className="flex h-full flex-col gap-9">
-        <header>
-          <h2
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "var(--type-title)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            {FEATURES.title}
-          </h2>
-          <p
-            className="mt-3"
-            style={{
-              fontSize: "var(--type-subtitle)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            {FEATURES.subtitle}
-          </p>
-        </header>
+        <SlideHeader title={FEATURES.title} subtitle={FEATURES.subtitle} />
 
         <div className="grid flex-1 grid-cols-1 gap-6 md:grid-cols-3">
           {FEATURES.cards.map((c, i) => (
