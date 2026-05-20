@@ -1,6 +1,23 @@
 "use client";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+
+function subscribeMedia(query: string) {
+  return (callback: () => void) => {
+    if (typeof window === "undefined") return () => {};
+    const mql = window.matchMedia(query);
+    mql.addEventListener("change", callback);
+    return () => mql.removeEventListener("change", callback);
+  };
+}
+
+function getMediaSnapshot(query: string) {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia(query).matches;
+}
+
+const subscribeHover = subscribeMedia("(hover: hover)");
+const subscribeReduced = subscribeMedia("(prefers-reduced-motion: reduce)");
 
 export function MagneticCursor() {
   const x = useMotionValue(-100);
@@ -8,13 +25,18 @@ export function MagneticCursor() {
   const springX = useSpring(x, { stiffness: 400, damping: 28 });
   const springY = useSpring(y, { stiffness: 400, damping: 28 });
   const [hovering, setHovering] = useState(false);
-  const [enabled, setEnabled] = useState(false);
 
-  useEffect(() => {
-    const supportsHover = window.matchMedia("(hover: hover)").matches;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setEnabled(supportsHover && !reduced);
-  }, []);
+  const supportsHover = useSyncExternalStore(
+    subscribeHover,
+    () => getMediaSnapshot("(hover: hover)"),
+    () => false,
+  );
+  const reduced = useSyncExternalStore(
+    subscribeReduced,
+    () => getMediaSnapshot("(prefers-reduced-motion: reduce)"),
+    () => false,
+  );
+  const enabled = supportsHover && !reduced;
 
   useEffect(() => {
     if (!enabled) return;
