@@ -14,14 +14,14 @@ export function SlideIndicator() {
 
     const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-            const idx = sections.indexOf(entry.target as HTMLElement);
-            if (idx >= 0) setActive(idx);
-          }
-        });
+        const top = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!top) return;
+        const idx = sections.indexOf(top.target as HTMLElement);
+        if (idx >= 0) setActive(idx);
       },
-      { threshold: [0.5] },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
     sections.forEach((s) => obs.observe(s));
     return () => obs.disconnect();

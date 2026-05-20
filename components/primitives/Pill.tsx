@@ -22,7 +22,7 @@ export function Pill({
         borderColor: variant === "tag" ? "rgba(0,168,225,0.18)" : "var(--border)",
         color: variant === "tag" ? "var(--blue-dark)" : "var(--ink-2)",
         boxShadow: variant === "tag" ? "none" : "var(--shadow-sm)",
-        fontSize: variant === "tag" ? "var(--type-small)" : "var(--type-small)",
+        fontSize: "var(--type-small)",
       }}
     >
       <span
